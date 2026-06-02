@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI/UX Designer Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#f8fafc,#eef2ff);
+    padding:50px;
+    color:#111827;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.header h1{
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+.header p{
+    color:#6b7280;
+    font-size:18px;
+}
+
+.section-title{
+    font-size:38px;
+    margin-bottom:30px;
+}
+
+.projects-container{
+    display:flex;
+    gap:25px;
+    overflow-x:auto;
+    padding-bottom:10px;
+}
+
+.projects-container::-webkit-scrollbar{
+    display:none;
+}
+
+.project-card{
+    min-width:350px;
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+}
+
+.project-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.project-content{
+    padding:25px;
+}
+
+.project-tag{
+    display:inline-block;
+    background:#eef2ff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+.project-content h3{
+    margin-bottom:12px;
+}
+
+.project-content p{
+    color:#6b7280;
+    margin-bottom:20px;
+    line-height:1.6;
+}
+
+.view-btn{
+    width:100%;
+    border:none;
+    background:rgba(197, 31, 31, 0.76);
+    color:#fff;
+    padding:14px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+    padding:20px;
+}
+
+.modal-content{
+    background:#fff;
+    width:100%;
+    max-width:750px;
+    border-radius:24px;
+    overflow:hidden;
+    position:relative;
+}
+
+.modal-content img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.modal-body{
+    padding:30px;
+}
+
+.modal-body p{
+    color:#555;
+    line-height:1.8;
+    margin:15px 0;
+}
+
+.tools{
+    margin-top:15px;
+}
+
+.tools span{
+    display:inline-block;
+    background:#f3f4f6;
+    padding:8px 14px;
+    border-radius:20px;
+    margin:5px;
+}
+
+.project-links{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.project-links a{
+    text-decoration:none;
+    background:#111827;
+    color:#fff;
+    padding:12px 20px;
+    border-radius:12px;
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:32px;
+    color:#fff;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+    body{
+        padding:25px;
+    }
+
+    .header h1{
+        font-size:36px;
+    }
+
+    .project-card{
+        min-width:300px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>UI/UX Designer Portfolio</h1>
+    <p>Creative Digital Experiences & User-Centered Design Solutions</p>
+</div>
+
+<h2 class="section-title">Featured Projects</h2>
+
+<div class="projects-container">
+
+    <!-- Fashion App -->
+    <div class="project-card">
+        <img src="project images/fashionapp.png" alt="Fashion App">
+
+        <div class="project-content">
+            <span class="project-tag">Mobile App Design</span>
+
+            <h3>Fashion App UI Design</h3>
+
+            <p>Modern fashion shopping experience with clean product layouts.</p>
+
+            <button
+                class="view-btn"
+                data-title="Fashion App UI Design"
+                data-image="project images/fashionapp.png"
+                data-about="Designed a modern fashion shopping application focused on product discovery, personalized recommendations, wishlist management, and a seamless checkout experience."
+                data-tools="Figma, Photoshop"
+                data-github="https://github.com/suriya-create/UI-UX-Design-Portfolio/tree/main/Fashion-App-UI-Design"
+                data-live="https://www.figma.com/design/K2uSpO68JlE2xqU67AINL8/Mobile-Shopping?node-id=0-1&t=imyOQS6Sm2IuIcDz-1">
+                View Case Study
+            </button>
+        </div>
+    </div>
+
+    <!-- Login App -->
+    <div class="project-card">
+        <img src="project images/loginapp.png" alt="Login App">
+
+        <div class="project-content">
+            <span class="project-tag">Authentication UI</span>
+
+            <h3>Login App UI Design</h3>
+
+            <p>User-friendly login, signup and password recovery interfaces.</p>
+
+            <button
+                class="view-btn"
+                data-title="Login App UI Design"
+                data-image="project images/loginapp.png"
+                data-about="Created a secure and visually appealing authentication flow including login, signup, OTP verification, password reset, and social login screens."
+                data-tools="Figma, Adobe XD"
+                data-github="https://github.com/suriya-create/UI-UX-Design-Portfolio/tree/main/Login-App-UI-Design"
+                data-live="https://www.figma.com/design/N4GpF47gRvOb5wU6VsYAE9/Login-page?t=imyOQS6Sm2IuIcDz-1">
+                View Case Study
+            </button>
+        </div>
+    </div>
+
+    <!-- Travel Website -->
+    <div class="project-card">
+        <img src="project images/Tripwebsite.png" alt="Travel Website">
+
+        <div class="project-content">
+            <span class="project-tag">Website Design</span>
+
+            <h3>Travel Website UI Design</h3>
+
+            <p>Responsive travel booking platform with engaging visuals.</p>
+
+            <button
+                class="view-btn"
+                data-title="Travel Website UI Design"
+                data-image="project images/Tripwebsite.png"
+                data-about="Designed a modern travel website allowing users to explore destinations, compare packages, and complete bookings through an intuitive interface."
+                data-tools="Figma, Illustrator"
+                data-github="https://github.com/suriya-create/UI-UX-Design-Portfolio/tree/main/Travel-Website-UI-Design"
+                data-live="https://www.figma.com/design/9HETx6hQA67GMwRwmYsXo2/Trip-Website?t=imyOQS6Sm2IuIcDz-1">
+                View Case Study
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal" id="projectModal">
+
+    <span class="close">&times;</span>
+
+    <div class="modal-content">
+
+        <img id="modalImage" src="" alt="Project">
+
+        <div class="modal-body">
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalAbout"></p>
+
+            <h3>Tools Used</h3>
+
+            <div class="tools" id="modalTools"></div>
+
+            <div class="project-links">
+                <a id="githubLink" href="#" target="_blank">GitHub</a>
+                <a id="liveLink" href="#" target="_blank">Live Preview</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const modal = document.getElementById("projectModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalAbout = document.getElementById("modalAbout");
+const modalImage = document.getElementById("modalImage");
+const modalTools = document.getElementById("modalTools");
+
+const githubLink = document.getElementById("githubLink");
+const liveLink = document.getElementById("liveLink");
+
+document.querySelectorAll(".view-btn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        modalTitle.textContent = button.dataset.title;
+        modalAbout.textContent = button.dataset.about;
+        modalImage.src = button.dataset.image;
+
+        githubLink.href = button.dataset.github;
+        liveLink.href = button.dataset.live;
+
+        modalTools.innerHTML = "";
+
+        button.dataset.tools.split(",").forEach(tool => {
+            const span = document.createElement("span");
+            span.textContent = tool.trim();
+            modalTools.appendChild(span);
+        });
+
+        modal.style.display = "flex";
+    });
+
+});
+
+document.querySelector(".close").addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+    if(e.target === modal){
+        modal.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>

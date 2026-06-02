@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Projects Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafc, #eef2ff);
+            padding: 50px;
+            color: #111827;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #6b7280;
+            font-size: 18px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 30px;
+        }
+
+        .projects-container {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            align-items: stretch;
+        }
+
+        .projects-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-card {
+            min-width: 350px;
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+            transition: .3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #eef2ff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 12px;
+        }
+
+        .project-content p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .view-btn {
+            width: 100%;
+            border: none;
+            background: rgba(197, 31, 31, 0.76);
+            color: #fff;
+            padding: 14px;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-top: auto;
+            transition: .3s;
+        }
+
+        .view-btn:hover {
+            opacity: .9;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #fff;
+            width: 100%;
+            max-width: 750px;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-body h2 {
+            margin-bottom: 15px;
+        }
+
+        .modal-body p {
+            color: #555;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        .tools {
+            margin-top: 15px;
+        }
+
+        .tools span {
+            display: inline-block;
+            background: #f3f4f6;
+            padding: 8px 14px;
+            border-radius: 20px;
+            margin: 5px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            background: #111827;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 12px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 32px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        @media(max-width:768px) {
+            body {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .project-card {
+                min-width: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Mini Projects Portfolio</h1>
+        <p>JavaScript Projects & Interactive Web Applications</p>
+    </div>
+
+    <h2 class="section-title">Featured Mini Projects</h2>
+
+    <div class="projects-container">
+
+        <!-- Guess Number -->
+        <div class="project-card">
+            <img src="project images/guessthenumber.png" alt="">
+            <div class="project-content">
+                <span class="project-tag">JavaScript Game</span>
+                <h3>Guess the Number</h3>
+                <p>Interactive number guessing game with hints and score tracking.</p>
+
+                <button class="view-btn" data-title="Guess the Number" data-image="project images/guessthenumber.png"
+                    data-about="A fun number guessing game where users try to guess a randomly generated number."
+                    data-tools="HTML, CSS, JavaScript"
+                    data-github="https://github.com/suriya-create/Mini-Project/tree/main/Guess%20the%20Number"
+                    data-live="https://iamsuriya.neocities.org/mini%20project/Guess%20the%20Number/GuesstheNumber">
+                    View Project
+                </button>
+            </div>
+        </div>
+
+        <!-- Converter -->
+        <div class="project-card">
+            <img src="project images/Cmc.png" alt="">
+            <div class="project-content">
+                <span class="project-tag">Converter App</span>
+                <h3>Centimeter to Meter Converter</h3>
+                <p>Simple converter for centimeter and meter calculations.</p>
+
+                <button class="view-btn" data-title="Centimeter to Meter Converter" data-image="project images/Cmc.png"
+                    data-about="Convert centimeters into meters instantly." data-tools="HTML, CSS, JavaScript"
+                    data-github="https://github.com/suriya-create/Mini-Project/tree/main/Centimeter%20to%20Meter%20Converter"
+                    data-live="https://iamsuriya.neocities.org/mini%20project/Centimeter%20to%20Meter%20Converter/cmc">
+                    View Project
+                </button>
+            </div>
+        </div>
+
+        <!-- Coin Toss -->
+        <div class="project-card">
+            <img src="project images/Ctg.png" alt="">
+            <div class="project-content">
+                <span class="project-tag">Mini Game</span>
+                <h3>Toss the Coin</h3>
+                <p>Random heads or tails coin toss simulator.</p>
+
+                <button class="view-btn" data-title="Toss the Coin" data-image="project images/Ctg.png"
+                    data-about="A coin toss game that randomly generates heads or tails."
+                    data-tools="HTML, CSS, JavaScript"
+                    data-github="https://github.com/suriya-create/Mini-Project/tree/main/Coin%20Toss%20Game"
+                    data-live="https://iamsuriya.neocities.org/mini%20project/Coin%20Toss%20Game/cointossgame">
+                    View Project
+                </button>
+            </div>
+        </div>
+
+        <!-- Todo -->
+        <div class="project-card">
+            <img src="project images/Todo List.png" alt="">
+            <div class="project-content">
+                <span class="project-tag">Productivity App</span>
+                <h3>To-Do List</h3>
+                <p>Task management application with local storage support.</p>
+
+                <button class="view-btn" data-title="To-Do List" data-image="project images/Todo List.png"
+                    data-about="Create, edit and manage tasks with local storage."
+                    data-tools="HTML, CSS, JavaScript, Local Storage" data-github="https://github.com/"
+                    data-live="https://iamsuriya.neocities.org/mini%20project/To%20Do%20List/TodoList">
+                    View Project
+                </button>
+            </div>
+        </div>
+
+        <!-- Stone Paper Scissors -->
+        <div class="project-card">
+            <img src="project images/SPSG.png" alt="">
+            <div class="project-content">
+                <span class="project-tag">JavaScript Game</span>
+                <h3>Stone Paper Scissors</h3>
+                <p>Play against the computer and track scores.</p>
+
+                <button class="view-btn" data-title="Stone Paper Scissors" data-image="project images/SPSG.png"
+                    data-about="Classic stone paper scissors game built using JavaScript."
+                    data-tools="HTML, CSS, JavaScript"
+                    data-github="https://github.com/suriya-create/Mini-Project/tree/main/SPSG"
+                    data-live="https://iamsuriya.neocities.org/mini%20project/SPSG/StonePaperScissorsGame">
+                    View Project
+                </button>
+            </div>
+        </div>
+
+        <!-- Calculator -->
+        <div class="project-card">
+            <img src="project images/Calculator.png" alt="">
+            <div class="project-content">
+                <span class="project-tag">Calculator App</span>
+                <h3>Calculator</h3>
+                <p>Responsive calculator for basic arithmetic operations.</p>
+
+                <button class="view-btn" data-title="Calculator" data-image="project images/Calculator.png"
+                    data-about="Calculator supporting addition, subtraction, multiplication and division."
+                    data-tools="HTML, CSS, JavaScript"
+                    data-github="https://github.com/suriya-create/Mini-Project/tree/main/Calculator"
+                    data-live="https://iamsuriya.neocities.org/mini%20project/Calculator/Calculator">
+                    View Project
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+
+    <div class="modal" id="projectModal">
+
+        <span class="close">&times;</span>
+
+        <div class="modal-content">
+
+            <img id="modalImage" src="" alt="">
+
+            <div class="modal-body">
+
+                <h2 id="modalTitle"></h2>
+
+                <p id="modalAbout"></p>
+
+                <h3>Technologies Used</h3>
+
+                <div class="tools" id="modalTools"></div>
+
+                <div class="project-links">
+                    <a id="githubLink" href="#" target="_blank">GitHub</a>
+                    <a id="liveLink" href="#" target="_blank">Live Demo</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const modal = document.getElementById("projectModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalAbout = document.getElementById("modalAbout");
+        const modalImage = document.getElementById("modalImage");
+        const modalTools = document.getElementById("modalTools");
+        const githubLink = document.getElementById("githubLink");
+        const liveLink = document.getElementById("liveLink");
+
+        document.querySelectorAll(".view-btn").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                modalTitle.textContent = button.dataset.title;
+                modalAbout.textContent = button.dataset.about;
+                modalImage.src = button.dataset.image;
+
+                githubLink.href = button.dataset.github;
+                liveLink.href = button.dataset.live;
+
+                modalTools.innerHTML = "";
+
+                button.dataset.tools.split(",").forEach(tool => {
+                    const span = document.createElement("span");
+                    span.textContent = tool.trim();
+                    modalTools.appendChild(span);
+                });
+
+                modal.style.display = "flex";
+            });
+
+        });
+
+        document.querySelector(".close").addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
