@@ -1116,6 +1116,22 @@
       line-height: 1.7;
     }
 
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .proj-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green-dark);
+      background: var(--green-lt);
+      padding: 4px 10px;
+      border-radius: var(--r-pill);
+    }
+
     .proj-foot {
       display: flex;
       align-items: center;
@@ -1140,6 +1156,29 @@
     }
 
     .proj-card:hover .proj-btn {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+
+    /* Cards with two footer buttons (View + View on GitHub) */
+    .proj-card--btns .proj-foot {
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .proj-card--btns .proj-btn {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .proj-card--btns:hover .proj-btn {
+      background: var(--off-white);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .proj-card--btns .proj-btn:hover {
       background: var(--text);
       color: #fff;
       border-color: var(--text);
@@ -2282,8 +2321,81 @@
         design and functional code.</p>
 
       <div class="proj-grid">
-        <a href="project/UX Designer Portfolio.html" target="_blank" class="proj-card sr d1">
-          <div class="proj-thumb" style="background:linear-gradient(135deg,#2d1a5e,#6d28d9);">
+        <div class="proj-card proj-card--btns sr d1">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#7c2d12,#ea580c);">
+            <div class="proj-thumb-multi">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"
+                class="proj-thumb-logo-sm">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django"
+                class="proj-thumb-logo-sm" style="filter:invert(1);">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"
+                class="proj-thumb-logo-sm">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
+                class="proj-thumb-logo-sm">
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cat">Full Stack · Web Application</div>
+            <div class="proj-title">Startup Platform</div>
+            <div class="proj-desc">Developed a skill-based opportunity platform connecting candidates and projects
+              based on skills, experience, and capabilities, removing barriers related to education, age, or career
+              gaps. Implemented JWT-based authentication and a Django REST Framework API layer to support a React.js
+              frontend.</div>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">Django</span>
+              <span class="proj-tag">Django REST Framework</span>
+              <span class="proj-tag">React.js</span>
+              <span class="proj-tag">JavaScript</span>
+              <span class="proj-tag">MySQL</span>
+              <span class="proj-tag">JWT</span>
+            </div>
+          </div>
+          <div class="proj-foot">
+            <!-- TODO: replace # with the live project link -->
+            <a href="https://startup-platform-xi.vercel.app/" target="_blank" rel="noopener" class="proj-btn">View →</a>
+            <a href="https://github.com/suriya-create/Startup-Platform" target="_blank" rel="noopener" class="proj-btn">View on GitHub →</a>
+          </div>
+        </div>
+        <div class="proj-card proj-card--btns sr d2">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#1e1b4b,#4338ca);">
+            <div class="proj-thumb-multi">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"
+                class="proj-thumb-logo-sm">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"
+                class="proj-thumb-logo-sm">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"
+                class="proj-thumb-logo-sm">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django"
+                class="proj-thumb-logo-sm" style="filter:invert(1);">
+<img src="https://cdn.simpleicons.org/mysql/FFFFFF"
+     alt="MySQL"
+     class="proj-thumb-logo-sm"
+     style="background-color:#4479A1; padding:10px; border-radius:10px;">
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cat">Full Stack · Web Application</div>
+            <div class="proj-title">CRM Software Product</div>
+            <div class="proj-desc">Developed a web-based CRM product covering sales, customer relationship
+              management, and business operations. Built 11 functional modules including Leads, Contacts, Accounts,
+              Deals, Sales, Activities, Reports, Analytics, Inventory, Support, and Projects.</div>
+            <div class="proj-tags">
+              <span class="proj-tag">HTML5</span>
+              <span class="proj-tag">CSS3</span>
+              <span class="proj-tag">JavaScript</span>
+              <span class="proj-tag">Django</span>
+              <span class="proj-tag">MySQL</span>
+            </div>
+          </div>
+          <div class="proj-foot">
+            <!-- TODO: replace # with the live project link -->
+            <a href="https://world-crm.vercel.app/" target="_blank" rel="noopener" class="proj-btn">View →</a>
+            <a href="https://github.com/suriya-create/World-Crm" target="_blank" rel="noopener" class="proj-btn">View on GitHub →</a>
+          </div>
+        </div>
+        <div class="proj-card proj-card--btns sr d3">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#827997,#6d28d9);">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"
               class="proj-thumb-logo">
           </div>
@@ -2295,10 +2407,11 @@
               better usability.</div>
           </div>
           <div class="proj-foot">
-            <div class="proj-btn">View Project →</div>
+            <a href="project/UX Designer Portfolio.html" target="_blank" rel="noopener" class="proj-btn">View →</a>
+            <a href="https://github.com/suriya-create/UI-UX-Design-Portfolio" target="_blank" rel="noopener" class="proj-btn">View on GitHub →</a>
           </div>
-        </a>
-        <a href="project/miniproject.html" target="_blank" class="proj-card sr d2">
+        </div>
+        <div class="proj-card proj-card--btns sr d4">
           <div class="proj-thumb" style="background:linear-gradient(135deg,#0a5c44,#1a7a4a);">
             <div class="proj-thumb-multi">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"
@@ -2319,10 +2432,11 @@
               JavaScript to strengthen front-end development and problem-solving skills.</div>
           </div>
           <div class="proj-foot">
-            <div class="proj-btn">View Project →</div>
+            <a href="project/miniproject.html" target="_blank" rel="noopener" class="proj-btn">View →</a>
+            <a href="https://github.com/suriya-create/Frontend-Mini-Projects" target="_blank" rel="noopener" class="proj-btn">View on GitHub →</a>
           </div>
-        </a>
-        <a href="project/Front-End Developer Portfolio.html" target="_blank" class="proj-card sr d3">
+        </div>
+        <div class="proj-card proj-card--btns sr d5">
           <div class="proj-thumb" style="background:linear-gradient(135deg,#1a3a5c,#1a6faf);">
             <div class="proj-thumb-multi">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"
@@ -2344,10 +2458,11 @@
               Integrated product cards, a shopping cart system, and a responsive navigation bar.</div>
           </div>
           <div class="proj-foot">
-            <div class="proj-btn">View Project →</div>
+            <a href="project/Front-End Developer Portfolio.html" target="_blank" rel="noopener" class="proj-btn">View →</a>
+            <a href="https://github.com/suriya-create/Frontend-Developer-Work" target="_blank" rel="noopener" class="proj-btn">View on GitHub →</a>
           </div>
-        </a>
-        <a href="project/Smart Farming with AI.html" target="_blank" class="proj-card sr d4">
+        </div>
+        <div class="proj-card proj-card--btns sr d6">
           <div class="proj-thumb" style="background:linear-gradient(135deg,#3a5c1a,#5a8a1a);">
             <div class="proj-thumb-multi">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"
@@ -2363,10 +2478,12 @@
               assistant application focused on agricultural sustainability.
             </div>
           </div>
-          <div class="proj-foot">
-            <div class="proj-btn">View Project →</div>
-          </div>
-        </a>
+          <h1 style="align-items: center; text-align: center; margin-top: 20px; color: rgb(112, 58, 58); font-size: 30px;">This is my college <br>Final-year project.</h1>
+          <!-- <div class="proj-foot">
+            <a href="project/Smart Farming with AI.html" target="_blank" rel="noopener" class="proj-btn">View →</a>
+            <a href="https://github.com/suriya-create" target="_blank" rel="noopener" class="proj-btn">View on GitHub →</a>
+          </div> -->
+        </div>
       </div>
       <div class="proj-all sr"><a href="https://github.com/suriya-create" class="btn-green"
           style="font-size:16px;padding:14px 36px;">View
