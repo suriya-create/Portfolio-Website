@@ -107,6 +107,22 @@ footer{
     padding:20px;
     margin-top:40px;
 }
+
+/* ===== Responsive layer: phones > tablets > laptops > desktops > 4K ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img{max-width:100%}
+.container{max-width:clamp(1100px,65vw,1500px)}
+.hero{padding:clamp(48px,9vw,80px) clamp(16px,4vw,20px)}
+.hero h1{font-size:clamp(1.9rem,6vw,3rem);overflow-wrap:anywhere}
+.hero p{font-size:clamp(1rem,2.6vw,1.2rem)}
+.project-card{
+    max-width:clamp(1000px,60vw,1400px);
+    padding:clamp(20px,5vw,40px);
+}
+.info-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.box{padding:clamp(18px,3.5vw,25px)}
+.tech span{margin:4px 3px}
+footer{padding:20px clamp(16px,4vw,20px)}
 </style>
 </head>
 <body>
