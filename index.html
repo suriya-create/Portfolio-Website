@@ -376,6 +376,35 @@
       display: block;
     }
 
+    /* each piece of the author block stays whole, so lines never break mid-item */
+    .hc-line {
+      white-space: nowrap;
+    }
+
+    /* contact row: items wrap as whole units; the "·" separators sit in the left
+       margin of each item, so a separator can never dangle at the start or end of a line */
+    .hc-contact {
+      display: block;
+      overflow: hidden;
+    }
+
+    .hc-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -17px;
+    }
+
+    .hc-row>.hc-line {
+      position: relative;
+      margin-left: 17px;
+    }
+
+    .hc-row>.hc-line::before {
+      content: "·";
+      position: absolute;
+      left: -10px;
+    }
+
     .hc-stats {
       display: flex;
       flex-direction: column;
@@ -461,7 +490,7 @@
       font-weight: 700;
       letter-spacing: .8px;
       text-transform: uppercase;
-      color: #999;
+      color: #000000;
       border-right: 1px solid var(--border);
     }
 
@@ -638,7 +667,7 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--green-bright);
+      color: #00ff6a;
       margin-bottom: 10px;
     }
 
@@ -741,7 +770,7 @@
     .skf-title {
       font-size: 15px;
       font-weight: 700;
-      color: rgba(255, 255, 255, .5);
+      color: white;
       margin-bottom: 10px;
       display: flex;
       align-items: center;
@@ -749,33 +778,16 @@
       transition: color .2s;
     }
 
-    .skf:first-child .skf-title {
-      color: var(--green-bright);
-    }
 
-    .skf:hover .skf-title {
-      color: rgba(255, 255, 255, .9);
-    }
-
-    .skf-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green-bright);
-      display: inline-block;
-      flex-shrink: 0;
-    }
 
     .skf-text {
       font-size: 13.5px;
-      color: rgba(255, 255, 255, .32);
+      color: whitesmoke;
       line-height: 1.75;
       transition: color .2s;
     }
 
-    .skf:hover .skf-text {
-      color: rgba(255, 255, 255, .55);
-    }
+
 
 
     .about-section {
@@ -1626,7 +1638,7 @@
 
     .fb-desc {
       font-size: 13px;
-      color: rgba(255, 255, 255, .35);
+      color: whitesmoke;
       line-height: 1.7;
     }
 
@@ -1646,13 +1658,13 @@
 
     .fc li a {
       font-size: 14px;
-      color: rgba(255, 255, 255, .4);
+      color: whitesmoke;
       text-decoration: none;
       transition: color .15s;
     }
 
     .fc li a:hover {
-      color: rgba(255, 255, 255, .8);
+      color: #fff;
     }
 
     .footer-bot {
@@ -1666,7 +1678,7 @@
 
     .fcopy {
       font-size: 13px;
-      color: rgba(255, 255, 255, .2);
+      color: whitesmoke;
     }
 
     .fsocs {
@@ -2272,13 +2284,12 @@
     }
 
     .exp-eyebrow {
-      display: block;
-      margin-bottom: 14px;
-      font-size: 13px;
+      font-size: 16px;
       font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--exp-accent);
+      font-style: italic;
+      color: var(--red);
+      display: block;
+      margin-bottom: 12px;
     }
 
     .exp-title {
@@ -2554,6 +2565,94 @@
         transition: none;
       }
     }
+
+    /* =====================================================================
+       RESPONSIVE POLISH  (tablet & mobile only - laptop/desktop is untouched)
+       Every rule below sits inside a max-width media query (1099px and down),
+       so screens wider than that render exactly as before.
+       ===================================================================== */
+
+    /* tablets and below: footer links get a comfortable tap height */
+    @media (max-width: 1099px) {
+      .fc li a {
+        display: inline-block;
+        padding: 6px 0;
+      }
+    }
+
+    /* phones and small tablets: tiny uppercase labels become 12px */
+    @media (max-width: 767px) {
+
+      .nav-logo-sub,
+      .hcs-l,
+      .sk-cat,
+      .cn-lbl,
+      .proj-cat,
+      .cert-cat,
+      .cert-badge {
+        font-size: 12px;
+      }
+    }
+
+    /* phones: all five tabs (Skills, About, Experience, Projects, Certs) fit in the pill */
+    @media (max-width: 480px) {
+      .tabs-pill {
+        padding: 4px;
+        gap: 0;
+      }
+
+      .tpb {
+        padding: 9px 11px;
+        font-size: 12.5px;
+      }
+    }
+
+    /* very small phones: tighter pill, the rest of the row still scrolls if needed */
+    @media (max-width: 360px) {
+      .tpb {
+        padding: 9px 8px;
+        font-size: 12px;
+      }
+    }
+
+    /* smallest phones (320px): keep all five tabs inside the pill without scrolling */
+    @media (max-width: 340px) {
+      .tpb {
+        padding: 9px 7px;
+      }
+    }
+
+    /* hero card author block: clean left-aligned list on phones */
+    @media (max-width: 640px) {
+      .hc-author {
+        line-height: 1.55;
+      }
+
+      .hc-author .hc-line {
+        display: block;
+      }
+
+      .hc-author .hc-sep {
+        display: none;
+      }
+
+      .hc-author .hc-contact {
+        margin-top: 4px;
+      }
+
+      .hc-author .hc-row {
+        display: block;
+        margin-left: 0;
+      }
+
+      .hc-author .hc-row>.hc-line {
+        margin-left: 0;
+      }
+
+      .hc-author .hc-row>.hc-line::before {
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -2592,11 +2691,13 @@
 
       <div class="hero-card">
         <div>
-          <p class="hc-quote"><strong>"I turn ideas into beautiful, functional digital experiences</strong> — clean
-            code, thoughtful design, real impact."</p>
+          <p class="hc-quote"><strong>I turn ideas into beautiful, functional digital experiences</strong> — clean
+            code, thoughtful design, real impact.</p>
           <div class="hc-author">
-            <strong>K. Suriya — Software &amp; Web Developer · UI/UX Designer</strong>
-            Ashok Nagar, Chennai, India &nbsp;·&nbsp; ksuriyaoffical@gmail.com &nbsp;·&nbsp; +91 7200165530
+            <strong><span class="hc-line">K. Suriya</span><span class="hc-sep"> — </span><span class="hc-line">Software &amp;
+                Web Developer</span><span class="hc-sep"> · </span><span class="hc-line">UI/UX Designer</span></strong>
+            <span class="hc-contact"><span class="hc-row"><span class="hc-line">Ashok Nagar, Chennai, India</span><span
+                  class="hc-line">ksuriyaoffical@gmail.com</span><span class="hc-line">+91 7200165530</span></span></span>
           </div>
         </div>
         <div class="hc-stats">
@@ -2607,7 +2708,7 @@
               </svg>
             </div>
             <div>
-              <div class="hcs-v">4+</div>
+              <div class="hcs-v">5+</div>
               <div class="hcs-l">Certifications</div>
             </div>
           </div>
@@ -2970,7 +3071,7 @@
               <polyline points="8 6 2 12 8 18" />
             </svg>
           </div>
-          <div class="skf-title"><span class="skf-dot"></span>Developer</div>
+          <div class="skf-title">Developer</div>
           <div class="skf-text">Python, JavaScript, HTML/CSS, Django, React — clean, maintainable code with attention to
             performance.</div>
         </div>
