@@ -21,7 +21,7 @@
       --white: #ffffff;
       --off-white: #f8f8f6;
       --text: #111111;
-      --muted: #555555;
+      --muted: #161616;
       --border: #e0e0e0;
       --red: #e8232a;
 
@@ -2229,6 +2229,331 @@
       }
     }
 
+    /* =====================================================================
+       EXPERIENCE & TRAINING  (all selectors start with .exp-)
+       Layout: one white panel, one row per entry. Date + badge sit in a
+       left column, a thin timeline rail runs down the middle, details on
+       the right. Reuses your :root variables: --font, --green,
+       --green-dark, --green-lt, --r-lg, --r-pill, --pad-x
+       ===================================================================== */
+
+    .exp-section {
+      --exp-bg: #fbfbfd;
+      --exp-card: #ffffff;
+      --exp-border: #e5e5ea;
+      --exp-text: #18191a;
+      --exp-muted: #18191a;
+      --exp-chip: #f5f5f7;
+      --exp-accent: var(--green, #1a7a4a);
+      --exp-accent-ink: var(--green-dark, #0a5c44);
+      --exp-accent-soft: var(--green-lt, #d4ede3);
+
+      /* row geometry (desktop) */
+      --exp-px: 48px;
+      --exp-meta: 220px;
+      --exp-gap: 64px;
+      --exp-rail: calc(var(--exp-px) + var(--exp-meta) + var(--exp-gap) / 2);
+
+      background: var(--exp-bg);
+      color: var(--exp-text);
+      font-family: var(--font, -apple-system, "SF Pro Display", "Segoe UI", Roboto, sans-serif);
+      padding: clamp(64px, 8vw, 96px) var(--pad-x, 80px);
+    }
+
+    .exp-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    /* ---------- heading ---------- */
+    .exp-head {
+      text-align: center;
+      margin-bottom: clamp(40px, 6vw, 64px);
+    }
+
+    .exp-eyebrow {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--exp-accent);
+    }
+
+    .exp-title {
+      font-size: clamp(32px, 4.6vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--exp-text);
+    }
+
+    .exp-sub {
+      max-width: 560px;
+      margin: 16px auto 0;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--exp-muted);
+    }
+
+    /* ---------- panel + rail ---------- */
+    .exp-panel {
+      background: var(--exp-card);
+      border: 1px solid var(--exp-border);
+      border-radius: 28px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 12px 32px rgba(0, 0, 0, .05);
+      overflow: hidden;
+    }
+
+    .exp-rows {
+      list-style: none;
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* the timeline rail */
+    .exp-rows::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--exp-rail);
+      width: 1px;
+      background: var(--exp-border);
+    }
+
+    .exp-row {
+      position: relative;
+      padding: 44px var(--exp-px);
+      transition: background-color .25s ease;
+    }
+
+    .exp-row+.exp-row {
+      border-top: 1px solid var(--exp-border);
+    }
+
+    .exp-row:hover {
+      background: rgba(26, 122, 74, .035);
+    }
+
+    /* dot: filled = latest, hollow = earlier */
+    .exp-dot {
+      position: absolute;
+      left: calc(var(--exp-rail) - 10px);
+      top: 50px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--exp-card);
+      border: 2px solid var(--exp-accent);
+      box-shadow: 0 0 0 5px var(--exp-card);
+    }
+
+    .exp-row:first-child .exp-dot {
+      background: var(--exp-accent);
+    }
+
+    /* ---------- entry: two-column grid, DOM order = mobile order ---------- */
+    .exp-entry {
+      display: grid;
+      grid-template-columns: var(--exp-meta) minmax(0, 1fr);
+      column-gap: var(--exp-gap);
+      align-items: start;
+    }
+
+    .exp-date {
+      grid-column: 1;
+      grid-row: 1;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      color: var(--exp-text);
+    }
+
+    .exp-badge {
+      grid-column: 1;
+      grid-row: 2;
+      justify-self: start;
+      margin-top: 4px;
+      padding: 4px 12px;
+      border-radius: var(--r-pill, 999px);
+      background: var(--exp-accent-soft);
+      color: var(--exp-accent-ink);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    .exp-role {
+      grid-column: 2;
+      grid-row: 1;
+      font-size: clamp(21px, 2.5vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: var(--exp-text);
+    }
+
+    .exp-company {
+      grid-column: 2;
+      grid-row: 2;
+      margin-top: 6px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--exp-muted);
+    }
+
+    /* ---------- bullets ---------- */
+    .exp-list {
+      grid-column: 2;
+      grid-row: 3;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin: 24px 0 0;
+      padding: 0;
+    }
+
+    .exp-list li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--exp-muted);
+    }
+
+    .exp-list li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: .72em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--exp-accent);
+    }
+
+    /* ---------- tech chips ---------- */
+    .exp-chips {
+      grid-column: 2;
+      grid-row: 4;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 24px 0 0;
+      padding: 0;
+    }
+
+    .exp-chips li {
+      padding: 6px 14px;
+      border: 1px solid var(--exp-border);
+      border-radius: var(--r-pill, 999px);
+      background: var(--exp-chip);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--exp-text);
+    }
+
+    /* ---------- scroll reveal (only active when the JS has run) ---------- */
+    .exp-section.exp-js .exp-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease, background-color .25s ease;
+    }
+
+    .exp-section.exp-js .exp-reveal.exp-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ---------- tablet ---------- */
+    @media (max-width: 1023px) {
+      .exp-section {
+        --exp-px: 32px;
+        --exp-meta: 170px;
+        --exp-gap: 48px;
+      }
+    }
+
+    /* ---------- mobile: single column, rail on the left ---------- */
+    @media (max-width: 767px) {
+      .exp-section {
+        --exp-px: 20px;
+        --exp-rail: 24px;
+      }
+
+      .exp-panel {
+        border-radius: 22px;
+      }
+
+      .exp-row {
+        padding: 28px var(--exp-px) 28px 52px;
+      }
+
+      .exp-dot {
+        left: 14px;
+        top: 33px;
+        width: 20px;
+        height: 20px;
+      }
+
+      .exp-entry {
+        display: block;
+      }
+
+      .exp-badge {
+        display: inline-block;
+        margin: 0 0 12px;
+      }
+
+      .exp-role {
+        font-size: 21px;
+      }
+
+      .exp-company {
+        margin-top: 6px;
+      }
+
+      /* date sits right under the title / company */
+      .exp-date {
+        margin-top: 12px;
+        font-size: 15px;
+      }
+
+      .exp-list {
+        margin-top: 20px;
+        gap: 14px;
+      }
+
+      .exp-chips {
+        margin-top: 20px;
+      }
+
+      .exp-chips li {
+        padding: 8px 14px;
+      }
+    }
+
+    /* ---------- reduced motion ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      .exp-section.exp-js .exp-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .exp-row {
+        transition: none;
+      }
+    }
   </style>
 </head>
 
@@ -2379,6 +2704,7 @@
     <div class="tabs-pill">
       <a href="#skills" class="tpb" style="background:var(--green-bright);color:var(--black);">Skills</a>
       <a href="#about" class="tpb">About</a>
+      <a href="#experience" class="tpb">Experience</a>
       <a href="#projects" class="tpb">Projects</a>
       <a href="#certs" class="tpb">Certs</a>
     </div>
@@ -2791,6 +3117,76 @@
   </section>
 
 
+  <!-- ============================================================
+       EXPERIENCE & TRAINING  (paste directly above <section id="projects" ...>)
+       ============================================================ -->
+  <section id="experience" class="exp-section" aria-labelledby="exp-title">
+    <div class="exp-inner">
+
+      <header class="exp-head exp-reveal">
+        <span class="exp-eyebrow">Experience</span>
+        <h2 class="exp-title" id="exp-title">Experience &amp; Training</h2>
+        <p class="exp-sub">Hands-on training and real project experience in full-stack development.</p>
+      </header>
+
+      <div class="exp-panel">
+        <ol class="exp-rows" role="list">
+
+          <!-- Entry 1 (newest) -->
+          <li class="exp-row exp-reveal">
+            <span class="exp-dot" aria-hidden="true"></span>
+            <article class="exp-entry">
+              <span class="exp-badge">Training</span>
+              <h3 class="exp-role">Python Full Stack Developer Trainee</h3>
+              <p class="exp-company">Login360 Software Training Institute, Chennai, India</p>
+              <p class="exp-date">Feb 2026 - Aug 2026</p>
+              <ul class="exp-list" role="list">
+                <li>Built full-stack web applications using Python, Django, HTML5, CSS3, JavaScript, Bootstrap, and React.js.</li>
+                <li>Developed backend functionality, REST APIs, and database-driven applications with Django and MySQL.</li>
+                <li>Implemented version control and collaborative development workflows using Git and GitHub.</li>
+                <li>Applied software development lifecycle (SDLC) methodology and coding best practices across project development.</li>
+                <li>Contributed to real-world web application projects, strengthening frontend and backend development skills.</li>
+              </ul>
+              <ul class="exp-chips" role="list" aria-label="Tech stack">
+                <li>Python</li>
+                <li>Django</li>
+                <li>React.js</li>
+                <li>MySQL</li>
+                <li>REST API</li>
+                <li>Git</li>
+              </ul>
+            </article>
+          </li>
+
+          <!-- Entry 2 -->
+          <li class="exp-row exp-reveal">
+            <span class="exp-dot" aria-hidden="true"></span>
+            <article class="exp-entry">
+              <span class="exp-badge">Internship</span>
+              <h3 class="exp-role">Python Programming Intern</h3>
+              <p class="exp-company">Tech Power Solutions, Vadapalani, Chennai, India</p>
+              <p class="exp-date">Jun 2024 - Dec 2024</p>
+              <ul class="exp-list" role="list">
+                <li>Engineered Python automation scripts to streamline 5+ internal workflows, improving team operational efficiency by 15%.</li>
+                <li>Diagnosed and resolved software defects across 3 production modules through systematic debugging and unit testing under senior developer supervision.</li>
+                <li>Collaborated with the development team using Git version control, contributing to clean, maintainable codebases.</li>
+                <li>Documented automation processes, reducing onboarding time for new team members.</li>
+              </ul>
+              <ul class="exp-chips" role="list" aria-label="Tech stack">
+                <li>Python</li>
+                <li>Automation</li>
+                <li>Debugging</li>
+                <li>Unit Testing</li>
+                <li>Git</li>
+              </ul>
+            </article>
+          </li>
+
+        </ol>
+      </div>
+
+    </div>
+  </section>
   <section id="projects" class="projects-section">
     <div class="proj-inner">
       <div class="proj-hd sr">
@@ -2982,6 +3378,20 @@
       </div>
       <div class="certs-grid">
         <div class="cert-card sr d1">
+          <div class="cert-icon" style="background:#e6f4ea;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django"
+              width="36" height="36">
+          </div>
+          <div class="cert-cat">Course Certification</div>
+          <div class="cert-title">Python Full Stack</div>
+          <div class="cert-by">Login360 Software Training Institute, Chennai, Tamil Nadu</div>
+          <div class="cert-foot">
+            <div class="cert-badge">Verified</div>
+            <a href="Certifications/Python Full Stack - Login360.pdf" target="_blank" class="cert-arr"
+              style="text-decoration: none;">→</a>
+          </div>
+        </div>
+        <div class="cert-card sr d2">
           <div class="cert-icon" style="background:#e8f7ef;">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"
               width="36" height="36">
@@ -2996,10 +3406,9 @@
             <a href="Certifications/SURIYA K   - Intern Completion.pdf" target="_blank" class="cert-arr" style="text-decoration: none;">→</a>
           </div>
         </div>
-        <div class="cert-card sr d2">
+        <div class="cert-card sr d3">
           <div class="cert-icon" style="background:#e8f3fb;display:flex;align-items:center;gap:6px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Tata_consultancy_services_logo.svg" alt="TATA"
-              style="height:28px;width:auto;">
+            <img src="assect/tcs-logo.svg" alt="TCS" width="36" height="36">
           </div>
           <div class="cert-cat">Data Analytics · Generative AI</div>
           <div class="cert-title">GenAI PowerData Analytics Job Simulation</div>
@@ -3010,7 +3419,7 @@
               style="text-decoration: none;">→</a>
           </div>
         </div>
-        <div class="cert-card sr d3">
+        <div class="cert-card sr d4">
           <div class="cert-icon" style="background:#fff8e6;">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
               alt="Google Cloud" width="36" height="36">
@@ -3024,7 +3433,7 @@
               style="text-decoration: none;">→</a>
           </div>
         </div>
-        <div class="cert-card sr d4">
+        <div class="cert-card sr d5">
           <div class="cert-icon" style="background:#f0e8ff;">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure"
               width="36" height="36">
@@ -3238,6 +3647,32 @@
       window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fill, 150); });
       window.addEventListener('load', fill);
       fill();
+    })();
+  </script>
+  <script>
+    /* Experience & Training: scroll reveal (fade + translateY 24px, staggered 100ms).
+       If IntersectionObserver is missing or the visitor prefers reduced motion,
+       the class "exp-js" is never added, so everything simply stays visible. */
+    (function () {
+      var section = document.getElementById('experience');
+      if (!section) return;
+
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!('IntersectionObserver' in window) || reduce) return;
+
+      section.classList.add('exp-js');
+
+      var io = new IntersectionObserver(function (entries) {
+        var n = 0;                                   // position inside this batch -> stagger
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.style.transitionDelay = (n++ * 100) + 'ms';
+          entry.target.classList.add('exp-in');
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+      section.querySelectorAll('.exp-reveal').forEach(function (el) { io.observe(el); });
     })();
   </script>
 
